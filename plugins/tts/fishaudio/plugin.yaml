@@ -1,6 +1,6 @@
 name: fishaudio-tts
-version: 0.1.0
-description: "Fish Audio TTS through the fish-audio-tts-toolkit helper, with automatic tagging and local wake-mode playback."
+version: 0.2.0
+description: "Fish Audio TTS through the fish-audio-tts-toolkit helper, with automatic tagging, current model support, PCM output, and local wake-mode playback."
 author: EpicIsTheOne
 kind: backend
 requires_env:
