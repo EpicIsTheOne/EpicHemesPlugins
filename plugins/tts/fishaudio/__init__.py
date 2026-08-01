@@ -31,15 +31,16 @@ from agent.tts_provider import TTSProvider
 logger = logging.getLogger(__name__)
 
 _DEFAULT_HELPER_URL = "http://127.0.0.1:3027"
-_DEFAULT_MODEL = "s2-pro"
+_DEFAULT_MODEL = "s2.1-pro"
 _DEFAULT_LATENCY = "low"
 _DEFAULT_TIMEOUT = 120.0
 _MAX_TOOLKIT_TEXT = 2500
-_SUPPORTED_FORMATS = frozenset({"mp3", "wav", "opus"})
+_SUPPORTED_FORMATS = frozenset({"mp3", "wav", "opus", "pcm"})
 _FORMAT_EXTENSIONS = {
     "mp3": ".mp3",
     "wav": ".wav",
     "opus": ".opus",
+ "pcm": ".pcm",
 }
 
 
@@ -302,6 +303,8 @@ class FishAudioTTSProvider(TTSProvider):
         requested = str(fmt or "mp3").strip().lower().lstrip(".")
         if requested == "ogg":
             requested = "opus"
+        if requested == "raw":
+            requested = "pcm"
         if requested not in _SUPPORTED_FORMATS:
             requested = "mp3"
         target = Path(output_path)
