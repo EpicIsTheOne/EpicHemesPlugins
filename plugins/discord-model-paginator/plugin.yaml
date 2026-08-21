@@ -1,0 +1,10 @@
+name: discord-model-paginator
+version: 1.2.0
+description: >-
+  Patches Hermes' Discord /model picker so it survives Discord's 25-option
+  select-menu cap. Adds Prev/Next pagination (25 models per page) so EVERY
+  model is reachable from the Discord dropdown instead of silently truncating.
+  Loaded as a user plugin so it re-applies on every gateway boot and survives
+  `hermes update`.
+author: Nyxie (for Epic)
+license: MIT
